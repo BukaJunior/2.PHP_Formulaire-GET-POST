@@ -35,22 +35,74 @@
             <h1>Résumé de l'inscription</h1>
             <h2>Inscription de </h2>
             <div class="answer">
-                -
+              
                 <!-- Notre code ici : -->
+                <?php if(isset($_GET['lastname']) && ($_GET['firstname'])) {
+                    
+                    if($_GET['lastname'] != "") {
+                        
+                        $lastname = $_GET['lastname']; }
+                    
+                    if($_GET['firstname'] != "") {
+
+                        $firstname = $_GET['firstname']; }
+                        
+                        echo "$lastname $firstname";
+                    
+                    } else {
+          echo "<div class='error'></div>";
+
+        }
+
+          
+    ?>
+               
                 <!-- Si on reçoit une réponse du formulaire (donc si notre variable $_GET est remplie), alors
                 on affiche le nom et le prénom de la personne qui souhaite s'inscrire. -->
             </div>
             <h2>Autorisation </h2>
             <div class="answer">
-                -
-                <!-- Notre code ici : -->
-                <!-- Si on reçoit une réponse du formulaire (donc si notre variable $_GET est remplie), alors : 
+                 <!-- Notre code ici : -->
+                 <!-- Si on reçoit une réponse du formulaire (donc si notre variable $_GET est remplie), alors : 
                     - On récupère l'âge de la personne
+                    
+                    
+
                     - On vérifie cet âge :
                         - S'il est inférieur à 16 ans, on affiche "Trop jeune pour s'inscrire"
+
                         - S'il l'âge est situé entre 16 et 18 ans, on affiche "Inscription possible en conduite accompagnée"
+
                         - Sinon, afficher "Inscription possible"
+
                 -->
+
+                <?php if(isset($_GET['age'])) {
+
+                    if($_GET['age'] !="") {
+                        
+                        $age = $_GET['age']; }
+                } 
+
+               
+
+                if ($age < 16) {
+                    echo "Trop jeune pour s'inscrire";
+                }
+                
+                elseif ($age >= 16 && $age <=18 ) {
+                    echo "Inscription possible en conduite accompagnée";
+                    }
+
+                else {
+                    echo "Inscription possible";
+                }
+
+
+
+               
+                ?>
+                
             </div>
         </aside>
     </body>
