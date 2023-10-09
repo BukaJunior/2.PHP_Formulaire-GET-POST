@@ -34,15 +34,31 @@
             <h1>Résumé de l'inscription</h1>
             <h2>Inscription de </h2>
             <div class="answer">
-                -
+        
                 <!-- Notre code ici : -->
+                <?php
+
+                if(isset($_GET['lastname']) && isset($_GET['firstname'])) {    
+                
+                    if($_GET['lastname'] && $_GET['firstname'] != '') {
+
+                        $NomPrenom = $_GET['lastname'] . ' ' . $_GET['firstname'];
+
+                        echo $NomPrenom;
+                
+                    } else {
+                        echo 'Veuillez remplir les champs Nom et Prénom';
+                    }
+                } 
+                ?>
                 <!-- Si on reçoit une réponse du formulaire (donc si notre variable $_GET est remplie), alors
                 on affiche le nom et le prénom de la personne qui souhaite s'inscrire. -->
             </div>
             <h2>Autorisation </h2>
             <div class="answer">
-                -
+                
                 <!-- Notre code ici : -->
+
                 <!-- Si on reçoit une réponse du formulaire (donc si notre variable $_GET est remplie), alors : 
                     - On récupère l'âge de la personne
                     - On vérifie cet âge :
