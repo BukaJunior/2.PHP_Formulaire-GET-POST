@@ -58,7 +58,23 @@
             <div class="answer">
                 
                 <!-- Notre code ici : -->
+                <?php
 
+                if(isset($_GET['age'])) {
+                    
+                    if($_GET['age'] == '') {
+                    }
+
+                    if ($_GET['age'] < 16) {
+                        echo "Trop jeune pour s'inscrire";
+                    } elseif ($_GET['age'] >= 16 && $_GET['age'] < 18) {
+                        echo "Inscription possible en conduite accompagnée";
+                    } else {
+                        echo "Inscription possible";
+                    }
+                }
+
+                ?>
                 <!-- Si on reçoit une réponse du formulaire (donc si notre variable $_GET est remplie), alors : 
                     - On récupère l'âge de la personne
                     - On vérifie cet âge :
