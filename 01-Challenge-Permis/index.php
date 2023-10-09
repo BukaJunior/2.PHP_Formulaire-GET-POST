@@ -60,13 +60,15 @@
                 <!-- Notre code ici : -->
                 <?php
 
+                $delaiPermis = 16 - $_GET['age'];
+
                 if(isset($_GET['age'])) {
                     
                     if($_GET['age'] == '') {
                     }
 
                     if ($_GET['age'] < 16) {
-                        echo "Trop jeune pour s'inscrire";
+                        echo "Trop jeune pour s'inscrire mais vous pourrez vous inscrire dans" . ' ' . $delaiPermis . " ans";
                     } elseif ($_GET['age'] >= 16 && $_GET['age'] < 18) {
                         echo "Inscription possible en conduite accompagnée";
                     } else {
