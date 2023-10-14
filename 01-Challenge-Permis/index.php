@@ -37,9 +37,16 @@
         
                 <!-- Notre code ici : -->
                 <?php
-
-                if(isset($_GET['lastname']) && isset($_GET['firstname'])) {    
                 
+                if(
+                    // On verifie avec isset() que les variables existent bien
+                    isset($_GET['lastname']) &&
+                    isset($_GET['firstname']) &&
+                    // On verifie que les variables ne sont pas vides
+                    $_GET['lastname'] != ''&&
+                    $_GET['firstname'] != ''
+                ) {    
+                    
                     if($_GET['lastname'] && $_GET['firstname'] != '') {
 
                         $NomPrenom = $_GET['lastname'] . ' ' . $_GET['firstname'];
@@ -47,7 +54,7 @@
                         echo $NomPrenom;
                 
                     } else {
-                        echo 'Veuillez remplir les champs Nom et Prénom';
+                        echo '-';
                     }
                 } 
                 ?>

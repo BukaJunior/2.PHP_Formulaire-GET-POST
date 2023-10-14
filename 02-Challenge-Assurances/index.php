@@ -19,6 +19,63 @@
 		<h1>O'ssurance</h1>
 		<h2>Calcul du tarif de votre client</h2>
 
+		<?php
+
+		$Palier0 = "Refus d'assurer";
+		$Palier1 = "Rouge";
+		$Palier2 = "Orange";
+		$Palier3 = "Vert";
+		$Palier4 = "Bleu";
+
+		$PalierDéfaut = $Palier1;
+
+		$nbrAccident = 0 - $_GET['accident'];
+
+		if(isset($_GET['age']) && isset($_GET['ancienneté']) && isset($_GET['accident']) && isset($_GET['fidélité'])) {
+
+			if($_GET['age'] && $_GET['ancienneté'] && $_GET['accident'] && $_GET['fidélité'] != '') {		
+			}
+
+			if ($_GET['age'] > 25) {
+				$PalierDéfaut = $Palier2;
+				echo "Votre client a droit au tarif $PalierDéfaut";
+
+			} else {
+				$PalierDéfaut;
+				echo "Votre client a droit au tarif $PalierDéfaut";
+			}
+
+			if ($nbrAccident >= 0) {
+				
+				$PalierDéfaut = $Palier4;
+				echo "Votre client a droit au tarif $PalierDéfaut";
+			}
+		}
+
+
+		?>
+
+		<form action="" method="get">
+			<div>
+				<label for="age">Votre âge</label>
+				<input type="number" name="age" id="age" min="16" max="90">
+			</div>
+			<div>
+				<label for="ancienneté">Nombre d'années de permis</label>
+				<input type="number" name="ancienneté" id="ancienneté" min="0">
+			</div>
+			<div>
+				<label for="accident">Nombre d'accidents responsables</label>
+				<input type="number" name="accident" id="accident" min="0">
+			</div>
+			<div>
+				<label for="fidélité">Nombre d'années chez cet assureur</label>
+				<input type="number" name="fidélité" id="fidélité" min="0">
+			</div>
+
+			<button type="submit">Calculer le tarif</button>
+		</form>
+
 		<p>Votre client à droit au tarif <strong>xxx</strong></p>
 
 	</body>
