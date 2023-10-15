@@ -37,6 +37,8 @@
         
                 <!-- Notre code ici : -->
                 <?php
+                // On concatène les variables lastname et firstname pour afficher le nom complet
+                $nomPrenom = $_GET['lastname'] . ' ' . $_GET['firstname'];
                 
                 if(
                     // On verifie avec isset() que les variables existent bien
@@ -47,7 +49,7 @@
                     $_GET['firstname'] != ''
                 ) {
 
-                    echo $NomPrenom;
+                    echo $nomPrenom;
                 
                 } else {
                     echo '-';
