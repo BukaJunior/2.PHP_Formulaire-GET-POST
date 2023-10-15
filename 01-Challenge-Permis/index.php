@@ -46,13 +46,15 @@
                     isset($_GET['firstname']) &&
                     // On verifie que les variables ne sont pas vides
                     $_GET['lastname'] != '' &&
-                    $_GET['firstname'] != ''
+                    $_GET['lastname'] != ' ' &&
+                    $_GET['firstname'] != '' &&
+                    $_GET['firstname'] != ' '
                 ) {
 
                     echo $nomPrenom;
                 
                 } else {
-                    echo '-';
+                    echo "-";
                 } 
 
                 // var_dump(empty($_GET));
@@ -66,27 +68,29 @@
                 <!-- Notre code ici : -->
                 <?php
 
-                // On calcule le délai avant inscription
-                $delaiPermis = 16 - $_GET['age'];
-
                 // On vérifie que l'âge est bien défini
-                if(isset($_GET['age'])) {
+                if(isset($_GET['age']) && $_GET['age'] != "") {
 
                     $age = intval($_GET['age']);
-                    var_dump($age);
-                    // On vérifie que l'âge n'est pas vide
-                    if($age != '') {
-                    }
+                    // var_dump($age);
 
                     if ($age < 16) {
-                        echo "Trop jeune pour s'inscrire mais vous pourrez vous inscrire dans" . ' ' . $delaiPermis . " ans";
-                    } elseif ($age >= 16 && $age < 18) {
+
+                        echo "Trop jeune pour s'inscrire";
+
+                        // On calcule le délai avant inscription
+                        $delaiPermis = 16 - $_GET['age'];
+
+                        // On affiche le délai avant inscription
+                        echo "<p> Vous pourrez vous inscrire dans " . $delaiPermis . " ans";
+                    } elseif ($age < 18) {
                         echo "Inscription possible en conduite accompagnée";
-                    } elseif ($age >= 18) {
-                        echo "Inscription possible";
                     } else {
-                        echo "Veuillez renseigner votre âge";
+                        echo "Inscription possible";
                     }
+
+                } else {
+                    echo "-";
                 }
 
                 ?>
