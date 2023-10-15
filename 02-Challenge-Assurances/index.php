@@ -14,6 +14,24 @@
 		// Bonus 1. Afficher le résultat de trois manières différentes : via `if` & `elseif` ou bien `switch` ou bien `array()`
 		// Bonus 2. fioritures graphiques
 
+		// var_dump($_GET);
+
+		// filter_input permet de récupérer une valeur dans un tableau
+		// 1er Argument: INPUT_GET ou INPUT_POST
+		// 2ème Argument: La clé, le champ,l'entrée
+		// 3ème Argument: le filtre (vérification) (FACULTATIF)
+		$age = filter_input(INPUT_GET, 'age', FILTER_VALIDATE_INT);
+		$anciennetéPermis = filter_input(INPUT_GET, 'anciennetéPermis', FILTER_VALIDATE_INT);
+		$nbrAccidents = filter_input(INPUT_GET, 'nbrAccidents', FILTER_VALIDATE_INT);
+		$fidélité = filter_input(INPUT_GET, 'fidélité', FILTER_VALIDATE_INT);
+
+
+
+
+		var_dump($age);
+		var_dump($anciennetéPermis);
+		var_dump($nbrAccidents);
+		var_dump($fidélité);
 		?>
 
 		<h1>O'ssurance</h1>
@@ -30,12 +48,12 @@
 				<input type="number" name="age" id="age" min="16" max="90">
 			</div>
 			<div>
-				<label for="ancienneté">Nombre d'années de permis</label>
-				<input type="number" name="ancienneté" id="ancienneté" min="0">
+				<label for="anciennetéPermis">Nombre d'années de permis</label>
+				<input type="number" name="anciennetéPermis" id="anciennetéPermis" min="0">
 			</div>
 			<div>
-				<label for="accidents">Nombre d'accidents responsables</label>
-				<input type="number" name="accidents" id="accidents" min="0">
+				<label for="nbrAccidents">Nombre d'accidents responsables</label>
+				<input type="number" name="nbrAccidents" id="nbrAccidents" min="0">
 			</div>
 			<div>
 				<label for="fidélité">Nombre d'années chez votre assureur</label>
