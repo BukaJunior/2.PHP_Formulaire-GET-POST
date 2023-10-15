@@ -25,19 +25,25 @@
 		$nbrAccidents = filter_input(INPUT_GET, 'nbrAccidents', FILTER_VALIDATE_INT);
 		$fidélité = filter_input(INPUT_GET, 'fidélité', FILTER_VALIDATE_INT);
 
-		var_dump($age);
-		var_dump($anciennetéPermis);
-		var_dump($nbrAccidents);
-		var_dump($fidélité);
+		// var_dump($age);
+		// var_dump($anciennetéPermis);
+		// var_dump($nbrAccidents);
+		// var_dump($fidélité);
 
-		// On vérifie que les différentes variables contienne bien des valeurs utilisables ( les accidents et années ne doivent pas etre négatives)
+		// On vérifie que les différentes variables contiennent bien des valeurs utilisables ( les accidents et années ne doivent pas etre négatives)
 		if(
 			$age >= 18 &&
 			$anciennetéPermis >= 0 &&
 			$nbrAccidents >= 0 &&
 			$fidélité >= 0
 		){
-			echo "On fait le calcul";
+			// On fait le calcul du palier, par defaut on met le palier 1 (rouge).
+			$palier	= 1;
+
+			// Si on a des accidents, on réduit d'autant le nombre de paliers.
+			$palier -= $nbrAccidents; // $palier = $palier - $nbrAccidents;
+
+			// Si le permis a plus de 2 ans, on augmente le palier d'un niveau
 		}
 
 
