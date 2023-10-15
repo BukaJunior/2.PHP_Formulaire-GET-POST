@@ -25,13 +25,23 @@
 		$nbrAccidents = filter_input(INPUT_GET, 'nbrAccidents', FILTER_VALIDATE_INT);
 		$fidélité = filter_input(INPUT_GET, 'fidélité', FILTER_VALIDATE_INT);
 
-
-
-
 		var_dump($age);
 		var_dump($anciennetéPermis);
 		var_dump($nbrAccidents);
 		var_dump($fidélité);
+
+		// On vérifie que les différentes variables contienne bien des valeurs utilisables ( les accidents et années ne doivent pas etre négatives)
+		if(
+			$age >= 18 &&
+			$anciennetéPermis >= 0 &&
+			$nbrAccidents >= 0 &&
+			$fidélité >= 0
+		){
+			echo "On fait le calcul";
+		}
+
+
+		
 		?>
 
 		<h1>O'ssurance</h1>
