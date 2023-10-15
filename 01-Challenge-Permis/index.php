@@ -43,20 +43,17 @@
                     isset($_GET['lastname']) &&
                     isset($_GET['firstname']) &&
                     // On verifie que les variables ne sont pas vides
-                    $_GET['lastname'] != ''&&
+                    $_GET['lastname'] != '' &&
                     $_GET['firstname'] != ''
-                ) {    
-                    
-                    if($_GET['lastname'] && $_GET['firstname'] != '') {
+                ) {
 
-                        $NomPrenom = $_GET['lastname'] . ' ' . $_GET['firstname'];
-
-                        echo $NomPrenom;
+                    echo $NomPrenom;
                 
-                    } else {
-                        echo '-';
-                    }
+                } else {
+                    echo '-';
                 } 
+
+                // var_dump(empty($_GET));
                 ?>
                 <!-- Si on reçoit une réponse du formulaire (donc si notre variable $_GET est remplie), alors
                 on affiche le nom et le prénom de la personne qui souhaite s'inscrire. -->
@@ -67,19 +64,26 @@
                 <!-- Notre code ici : -->
                 <?php
 
+                // On calcule le délai avant inscription
                 $delaiPermis = 16 - $_GET['age'];
 
+                // On vérifie que l'âge est bien défini
                 if(isset($_GET['age'])) {
-                    
-                    if($_GET['age'] == '') {
+
+                    $age = intval($_GET['age']);
+                    var_dump($age);
+                    // On vérifie que l'âge n'est pas vide
+                    if($age != '') {
                     }
 
-                    if ($_GET['age'] < 16) {
+                    if ($age < 16) {
                         echo "Trop jeune pour s'inscrire mais vous pourrez vous inscrire dans" . ' ' . $delaiPermis . " ans";
-                    } elseif ($_GET['age'] >= 16 && $_GET['age'] < 18) {
+                    } elseif ($age >= 16 && $age < 18) {
                         echo "Inscription possible en conduite accompagnée";
-                    } else {
+                    } elseif ($age >= 18) {
                         echo "Inscription possible";
+                    } else {
+                        echo "Veuillez renseigner votre âge";
                     }
                 }
 
