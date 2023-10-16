@@ -14,6 +14,15 @@
 		// Bonus 1. Afficher le résultat de trois manières différentes : via `if` & `elseif` ou bien `switch` ou bien `array()`
 		// Bonus 2. fioritures graphiques
 
+		// On crée un tableau qui va contenir les différents paliers.
+		$listePaliers = [
+			0 => "Refus d'assurer",
+			1 => "Rouge",
+			2 => "Orange",
+			3 => "Vert",
+			4 => "Bleu"
+		];
+
 		// var_dump($_GET);
 
 		// filter_input permet de récupérer une valeur dans un tableau
@@ -87,7 +96,8 @@
 		<!-- On vérifie que la variable $palier existe, si elle existe, on affiche le résultat, sinon on affiche le formulaire. -->
 		<?php if(isset($palier)) : ?>
 
-			<p>Votre client à droit au tarif <strong>xxx</strong></p>
+			<!-- On affiche le résultat, la resultat de la variable $palier fera réfenrence au numero de l'index du tableau   -->
+			<p>Votre client à droit au tarif <strong><?= $listePaliers[$palier] ?> </strong></p>
 			<p>
 				<a href="index.php">Faire un autre calcul du tarif</a>
 			</p>
