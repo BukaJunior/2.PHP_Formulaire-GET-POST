@@ -73,7 +73,7 @@
 			} else if ($palier > 4){
 				$palier = 4;
 			}
-			var_dump($palier);
+			// var_dump($palier);
 
 		}
 
@@ -84,34 +84,39 @@
 		<h1>O'ssurance</h1>
 		<h2>Calcul du tarif de votre client</h2>
 
-		<?php
+		<!-- On vérifie que la variable $palier existe, si elle existe, on affiche le résultat, sinon on affiche le formulaire. -->
+		<?php if(isset($palier)) : ?>
 
-		// 1. Création du formulaire HTML demandant les informations nécessaires au calcul
-		?>
+			<p>Votre client à droit au tarif <strong>xxx</strong></p>
+			<p>
+				<a href="index.php">Faire un autre calcul du tarif</a>
+			</p>
 
-		<form action="" method="GET">
-			<div>
-				<label for="age">Votre âge</label>
-				<input type="number" name="age" id="age" min="16" max="90">
-			</div>
-			<div>
-				<label for="anciennetéPermis">Nombre d'années de permis</label>
-				<input type="number" name="anciennetéPermis" id="anciennetéPermis" min="0">
-			</div>
-			<div>
-				<label for="nbrAccidents">Nombre d'accidents responsables</label>
-				<input type="number" name="nbrAccidents" id="nbrAccidents" min="0">
-			</div>
-			<div>
-				<label for="fidélité">Nombre d'années chez votre assureur</label>
-				<input type="number" name="fidélité" id="fidélité" min="0">
-			</div>
-
-			
-			<button type="submit">Calculer le tarif</button>
-		</form>
+		<?php else : ?>
 		
-		<p>Votre client à droit au tarif <strong>xxx</strong></p>
+			<form action="" method="GET">
+				<div>
+					<label for="age">Votre âge</label>
+					<input type="number" name="age" id="age" min="16" max="90">
+				</div>
+				<div>
+					<label for="anciennetéPermis">Nombre d'années de permis</label>
+					<input type="number" name="anciennetéPermis" id="anciennetéPermis" min="0">
+				</div>
+				<div>
+					<label for="nbrAccidents">Nombre d'accidents responsables</label>
+					<input type="number" name="nbrAccidents" id="nbrAccidents" min="0">
+				</div>
+				<div>
+					<label for="fidélité">Nombre d'années chez votre assureur</label>
+					<input type="number" name="fidélité" id="fidélité" min="0">
+				</div>
+				
+				<button type="submit">Calculer le tarif</button>
+			</form>
+
+		<?php endif; ?>
+		
 
 	</body>
 </html>
