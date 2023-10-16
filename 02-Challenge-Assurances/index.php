@@ -39,26 +39,23 @@
 		){
 			// On fait le calcul du palier, par defaut on met le palier 1 (rouge).
 			$palier	= 1;
-
-			var_dump($palier);
+			// var_dump($palier);
 
 			// Si on a des accidents, on réduit d'autant le nombre de paliers.
 			$palier -= $nbrAccidents; // $palier = $palier - $nbrAccidents;
-			var_dump($palier);
+			// var_dump($palier);
 
 			// Si le permis a plus de 2 ans, on augmente le palier d'un niveau.
 			if($anciennetéPermis > 2){
 				$palier++;
 			}
-
-			var_dump($palier);
+			// var_dump($palier);
 
 			// Si le client a 25 ans augmente le palier de 1.
 			if( $age > 25){
 				$palier++;
 			}
-
-			var_dump($palier);
+			// var_dump($palier);
 
 			// Si le client a plus de 5 ans de fidélité, et qu'il n'est PAS REFUSER on augmente le palier de 1. 
 			// On vérifie que le client n'est pas refusé, car si il est refusé, on ne peut pas lui proposer un tarif.
@@ -66,8 +63,18 @@
 			if( $palier > 0 && $fidélité > 5){
 				$palier++;
 			}
+			// var_dump($palier);
 
+			// On vérifie que le palier soit compris entre 0 et 4.
+			// Si le palier est inférieur à 0, on le met à 0.
+			// Si le palier est supérieur à 4, on le met à 4.
+			if($palier < 0){
+				$palier = 0;
+			} else if ($palier > 4){
+				$palier = 4;
+			}
 			var_dump($palier);
+
 		}
 
 
